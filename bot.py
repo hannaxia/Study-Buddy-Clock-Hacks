@@ -6,7 +6,7 @@ from asyncio import sleep as s
 
 # from timer import Timer
 
-TOKEN = "ENV"
+TOKEN = 'MTAzODI0OTUyNzkwNTM2MjAxMA.GsY1WQ.udHQYv9admCIXWj-Heyhqs65fMp5lTfq9ARHIM'
 # client = discord.Client(intents=discord.Intents.default())
 intents = discord.Intents.default()
 intents.message_content = True
@@ -32,10 +32,10 @@ async def on_message(message):
     # put all command code here
     if message.channel.name == 'general':
       if user_message.lower() == '!help':
-          myEmbed = discord.Embed(title="Bot Commands", description="Here are the commands for this bot!", color=0x89CFF0)
+          myEmbed = discord.Embed(title="Bot Commands", description="Here are the commands for this bot! Prefix: !", color=0x89CFF0)
           myEmbed.add_field(name="Motivation", value="Use these commands to motivate you to study: \n `!motivation, !quotes, !roast`", inline=False)
           myEmbed.add_field(name="Music", value="We'll give you study music/playlist reccomendations! \n `!lofi, !anime, !backgroundmusic`", inline=False)
-          myEmbed.add_field(name="Ressources", value="Commands for helpful study ressources: \n `!studyhelp, !math, !sci, !art, !cs`", inline=False)
+          myEmbed.add_field(name="Resources", value="Commands for helpful study ressources: \n `!studyhelp, !math, !sci, !art, !cs`", inline=False)
           myEmbed.add_field(name="Productivity", value="Use me for productivity! I have timers, reminders, and fun productivity commands. \n `!timer {insert minutes}` \n `!reminder {insert minutes} {reminder message}`", inline=False)
           myEmbed.add_field(name="Other", value=" Other fun commands! \n `!cat, !hug`", inline=False)
           myEmbed.set_image(url="https://media.discordapp.net/attachments/1038234778262052885/1038527311135395971/studybuddy.png")
@@ -69,16 +69,6 @@ async def on_message(message):
         await message.channel.send(embed=myEmbed)
         return
 
-
-        # if message.content.startswith('!studylinks'):
-        #   # await message.channel.send('Say hello!')
-
-        #   def check(m):
-        #     return m.content == 'hello' and m.channel == channel
-
-        #   msg = await client.wait_for('message',check=check)
-        #   await channel.send('Hello {.author}!'.format(msg))
-      
       elif user_message.lower() == '!motivation':
         words = ["studying = money = happiness", "no bitches but if u ace that test, you will have money and thus get bitches - Elaine","you want to beat that one really annoying classmate? get a higher mark than them >:)","studying is hard. but just do it, it's not as hard as jumping off a cliff.","if you studied right now ur mom would be proud of you"]
         wordoutput = random.choice(words)
@@ -125,7 +115,6 @@ async def on_message(message):
         await message.channel.send(f'**Anime Lofi**: https://open.spotify.com/playlist/4WtqLI6gaRFaWB4g6mDnAX?si=a636e8768a9d4e2d')
         return
       
- #{author.mention}
       elif user_message.lower().find("!timer") != -1:
         stripTimeOnly = user_message.lower().replace("!timer","")
         timerstart = "Your timer has started..."
@@ -164,252 +153,5 @@ async def on_message(message):
         await asyncio.sleep(delay)
         await message.channel.send(messageReminder)
         return
-              
-              
-      # elif user_message.lower() == "!timerp":
-    
-        # async def timer(self, ctx, timeInput):
-        #   try:
-        #       try:
-        #           time = int(timeInput)
-        #       except:
-        #           convertTimeList = {'s':1, 'm':60, 'h':3600, 'd':86400, 'S':1, 'M':60, 'H':3600, 'D':86400}
-        #           time = int(timeInput[:-1]) * convertTimeList[timeInput[-1]]
-        #       if time > 86400:
-        #           await ctx.send("I can't do timers over a day long")
-        #           return
-        #       elif time <= 0:
-        #           await ctx.send("Timers don't go into negatives :/")
-        #           return
-        #       elif time >= 3600:
-        #           message = await ctx.send(f"Timer: {time//3600} hours {time%3600//60} minutes {time%60} seconds")
-        #       elif time >= 60:
-        #           message = await ctx.send(f"Timer: {time//60} minutes {time%60} seconds")
-        #       elif time < 60:
-        #           message = await ctx.send(f"Timer: {time} seconds")
-        #       while True:
-        #           try:
-        #               await asyncio.sleep(5)
-        #               time -= 5
-        #               if time >= 3600:
-        #                   await message.edit(content=f"Timer: {time//3600} hours {time %3600//60} minutes {time%60} seconds")
-        #               elif time >= 60:
-        #                   await message.edit(content=f"Timer: {time//60} minutes {time%60} seconds")
-        #               elif time < 60:
-        #                   await message.edit(content=f"Timer: {time} seconds")
-        #               if time <= 0:
-        #                 await message.edit(content="Ended!")
-        #                 await ctx.send(f"{ctx.author.mention} Your countdown Has ended!")
-        #                 break
-        #           except:
-        #               break
-        #   except:
-        #       await ctx.send(f"Alright, first you gotta let me know how I'm gonna time {timeInput}....")
-
-
-
-
-
-# attempted timer muahaha (will not work)
-# @client.event
-# async def on_message(message):
-#     user_message = str(message.content)
-#     if message.channel.name == 'general':
-#         if user_message.lower() == '!start':
-#             async def timer(self, ctx, timeInput):
-#                 try:
-#                     try:
-#                         time = int(timeInput)
-#                     except:
-#                         convertTimeList = {'s':1, 'm':60, 'h':3600, 'd':86400, 'S':1, 'M':60, 'H':3600, 'D':86400}
-#                         time = int(timeInput[:-1]) * convertTimeList[timeInput[-1]]
-#                     if time > 86400:
-#                         await ctx.send("I can\'t do timers over a day long")
-#                         return
-#                     if time <= 0:
-#                         await ctx.send("Timers don\'t go into negatives :/")
-#                         return
-#                     if time >= 3600:
-#                         message = await ctx.send(f"Timer: {time//3600} hours {time%3600//60} minutes {time%60} seconds")
-#                     elif time >= 60:
-#                         message = await ctx.send(f"Timer: {time//60} minutes {time%60} seconds")
-#                     elif time < 60:
-#                         message = await ctx.send(f"Timer: {time} seconds")
-#                     while True:
-#                         try:
-#                             await asyncio.sleep(5)
-#                             time -= 5
-#                             if time >= 3600:
-#                                 await message.edit(content=f"Timer: {time//3600} hours {time %3600//60} minutes {time%60} seconds")
-#                             elif time >= 60:
-#                                 await message.edit(content=f"Timer: {time//60} minutes {time%60} seconds")
-#                             elif time < 60:
-#                                 await message.edit(content=f"Timer: {time} seconds")
-#                             if time <= 0:
-#                                 await message.edit(content="Ended!")
-#                                 await ctx.send(f"{ctx.author.mention} Your countdown Has ended!")
-#                                 break
-#                         except:
-#                             break
-#                 except:
-#                     await ctx.send(f"Alright, first you gotta let me know how I\'m gonna time **{timeInput}**....")
-
-# async def on_message(message):
-#     user_message = str(message.content)
-#     if message.channel.name == 'general':
-#         if user_message.lower() == '!start':
-#             async def start_timer(ctx):
-#                 start_work_em = discord.Embed(title="Time to start working!", color=0x89CFF0)
-#                 await ctx.send(embed = start_work_em)
-
-#                 timer.start()
-#                 while timer.get_status():
-#                     await asyncio.sleep(1)
-#                     if timer.get_ticks() >= 10:
-#                         timer.stop()
-
-#                     start_play_em = discord.Embed(title='Time to start your break!', color=0x89CFF0)
-#                     await ctx.send(embed = start_work_em)
-
-# async def on_message(message):
-#     user_message = str(message.content)
-#     if user_message.lower() == '!stop':
-#         general_channel = client.get_channel(1025831217511280782)
-#         async def stop_timer(ctx):
-#             stop_timer_em = discord.Embed(title='Timer has stopped!', color=0x89CFF0)
-#             await ctx.send(embed = stop_timer_em)
-#             timer.stop()
-
-
-# @client.event
-# if user_message.lower() == '!start':
-  # async def timer(self, ctx, timeInput):
-  #     try:
-  #         try:
-  #             time = int(timeInput)
-  #         except:
-  #             convertTimeList = {'s':1, 'm':60, 'h':3600, 'd':86400, 'S':1, 'M':60, 'H':3600, 'D':86400}
-  #             time = int(timeInput[:-1]) * convertTimeList[timeInput[-1]]
-  #         if time > 86400:
-  #             await ctx.send("I can't do timers over a day long")
-  #             return
-  #         if time <= 0:
-  #             await ctx.send("Timers don't go into negatives :/")
-  #             return
-  #         if time >= 3600:
-  #             message = await ctx.send(f"Timer: {time//3600} hours {time%3600//60} minutes {time%60} seconds")
-  #         elif time >= 60:
-  #             message = await ctx.send(f"Timer: {time//60} minutes {time%60} seconds")
-  #         elif time < 60:
-  #             message = await ctx.send(f"Timer: {time} seconds")
-  #         while True:
-  #             try:
-  #                 await asyncio.sleep(5)
-  #                 time -= 5
-  #                 if time >= 3600:
-  #                     await message.edit(content=f"Timer: {time//3600} hours {time %3600//60} minutes {time%60} seconds")
-  #                 elif time >= 60:
-  #                     await message.edit(content=f"Timer: {time//60} minutes {time%60} seconds")
-  #                 elif time < 60:
-  #                     await message.edit(content=f"Timer: {time} seconds")
-  #                 if time <= 0:
-  #                     await message.edit(content="Ended!")
-  #                     await ctx.send(f"{ctx.author.mention} Your countdown Has ended!")
-  #                     break
-  #             except:
-  #                 break
-  #     except:
-  #         await ctx.send(f"Alright, first you gotta let me know how I'm gonna time {timeInput}....")
-
-#timer command
-# class TimerStatus(enum):
-#     Initialized = 1
-#     Running = 2
-#     Stopped = 3
-#     Expired = 4
-# class Timer:
-#     def init (self):
-#         self.status = TimerStatus.Initialized
-#         self.ticks = 0
-        
-#     def get_status(self):
-#         return self.status
-        
-#     def start (self, max_ticks):
-#         self.max_ticks = max_ticks
-#         self.status = TimerStatus.Running
-#         self.ticks = 0
-    
-#     def stop (self):
-#         self.status = TimerStatus.Stopped
-
-#     def get_ticks (self):
-#         return self.ticks
-    
-#     def tick (self):
-#         self.ticks == 1
-#         if self.get_ticks() >= self.max_ticks:
-#             self.status = TimerStatus.Expired
-
-
-
-
-
-      # elif user_message.lower() == '!hi'
-      # await message.channel.send
-      #   return
-
-# @client.event
-# async def on_message(message):
-#     user_message = str(message.content)
-#     if message.channel.name == 'general':
-#       if user_message.lower() == '!quotes':
-#         general_channel = client.get_channel(1038234778262052885)
-#         myEmbed = discord.Embed(title="They're not cringe I promise", description=(output), color=0x89CFF0)
-
-#         await general_channel.send(embed=myEmbed)
-
-# @client.event
-# async def on_message(message):
-#     user_message = str(message.content)
-#     if message.channel.name == 'general':
-#       if user_message.lower() == '!motivation':
-#         words = ["studying = money = happiness","no bitches but if u ace that test, you will have money and thus get bitches - elaine","you want to beat that one really annoying classmate? get a higher mark than them >:)","studying is hard. but just do it, it's not as hard as jumping off a cliff.","if you studied right now ur mom would be proud of you"]
-#         output = random.choice(words)
-#         general_channel = client.get_channel(1038234778262052885)
-#         myEmbed = discord.Embed(title="I'm rooting for you!!!", description=(output), color=0x89CFF0)
-
-#         await general_channel.send(embed=myEmbed)
-
-# @client.event
-# async def on_message(message):
-#     user_message = str(message.content)
-#     if message.channel.name == 'general':
-#       if user_message.lower() == '!quotes':
-#         words2 = ["insert cringy quote here"]
-#         output2 = random.choice(words2)
-#         general_channel = client.get_channel(1038234778262052885)
-#         myEmbed = discord.Embed(title="They're not cringe I promise", description=(output2), color=0x89CFF0)
-
-#         await general_channel.send(embed=myEmbed)
-
-
-# client.event
-# async def on_message(message):
-#     user_message = str(message.content)
-#     if message.channel.name == 'general':
-#       if user_message.lower() == '!roast':
-#         words3 = ['stop being lazy and procrasting >:(','ur mom would not be proud of you rn','you no study, asian parents MAD D:','get your crap together and study for once','remember how awful you felt when you did bad on that one test','I am disappointed in you. Jk unless you study ;)']
-#         output3 = random.choice(words3)
-#         general_channel = client.get_channel(1038234778262052885)
-#         myEmbed = discord.Embed(title="I'm sorry in advance", description=(output3), color=0x89CFF0)
-
-#         await general_channel.send(embed=myEmbed)
-
-
-
-# @client.event   
-# async def on_message(message):
-#   print("hi")
 
 client.run(TOKEN)
