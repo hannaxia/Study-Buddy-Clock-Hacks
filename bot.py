@@ -6,7 +6,7 @@ from asyncio import sleep as s
 
 # from timer import Timer
 
-TOKEN = 'MTAzODI0OTUyNzkwNTM2MjAxMA.GfjAVD.Xyr2IWS8UewQXj_5_fYGeszkH-GWm7eLLR_QrE'
+TOKEN = "ENV"
 # client = discord.Client(intents=discord.Intents.default())
 intents = discord.Intents.default()
 intents.message_content = True
